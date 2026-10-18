@@ -1,0 +1,4 @@
+books.json
+__pycache__
+*.log
+.env

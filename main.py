@@ -5,6 +5,10 @@ username = input("Please enter your name: ")
 print(f"Welcome {username}!")
 
 books = []
+bookshelf = Bookshelf(books)
+savedBooks = bookshelf.loadBooks()
+for sb in savedBooks:
+    books.append(sb)
 
 while True:
     print("\n================ New Book ================\n")
@@ -40,5 +44,6 @@ while True:
     elif repeat.lower() == "y":
         continue
 
-bookshelf = Bookshelf(books)
-Bookshelf.showBooks()
+
+bookshelf.showBooks()
+bookshelf.saveBooks()

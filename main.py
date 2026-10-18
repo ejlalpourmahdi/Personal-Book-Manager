@@ -1,3 +1,5 @@
+from books import Bookshelf
+
 username = input("Please enter your name: ")
 
 print(f"Welcome {username}!")
@@ -38,8 +40,5 @@ while True:
     elif repeat.lower() == "y":
         continue
 
-print("\n================ Your books ================\n")
-
-for b in books:
-    print(f"- Name: {b["name"].title()}\n- Author: {b["author"].title()}\n- Category: {b["category"]}")
-    print("\n---\n")
+bookshelf = Bookshelf(books)
+Bookshelf.showBooks()

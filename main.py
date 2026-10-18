@@ -1,49 +1,65 @@
-from books import Bookshelf
+import os
+from dotenv import load_dotenv
 
-username = input("Please enter your name: ")
+adminMode = input("Are you an admin? (y/n): ")
 
-print(f"Welcome {username}!")
+load_dotenv()
+ADMINPASSWORD = os.getenv("BOOKMANAGERADMINPASSWORD")
 
-books = []
-bookshelf = Bookshelf(books)
-savedBooks = bookshelf.loadBooks()
-for sb in savedBooks:
-    books.append(sb)
-
-while True:
-    print("\n================ New Book ================\n")
-
-    bookName = input("Name: ")
-    bookAuthor = input("Author: ")
-    bookCategory = input("Category: ")
-
-    print("\n==========================================\n")
-
-    if bookName.strip() == "":
-        print("Error! Book name can't be empty.\n")
-    elif bookAuthor.strip() == "":
-        print("Error! Please enter the author's name.\n")
-    elif bookCategory.strip() == "":
-        print("Error! Book Category can't be empty.\n")
+if adminMode.lower() == "y":
+    authentication = input("Enter the password: ")
+    if authentication == ADMINPASSWORD:
+        print("Admin mode activated.")
     else:
+        print("Access denied. password is incorrect.")
+    
+elif adminMode.lower() == "n":
+    from books import Bookshelf
 
-        book = {
-            "name": bookName,
-            "author": bookAuthor,
-            "category": bookCategory
-        }
+    username = input("Please enter your name: ")
 
-        books.append(book)
+    print(f"Welcome {username}!")
 
-        print("Success!\n")
+    books = []
+    bookshelf = Bookshelf(books)
+    savedBooks = bookshelf.loadBooks()
+    for sb in savedBooks:
+        books.append(sb)
 
-    repeat = input("\nDo you want to add a new book? (y/n): ")
+    while True:
+        print("\n================ New Book ================\n")
 
-    if repeat.lower() == "n":
-        break
-    elif repeat.lower() == "y":
-        continue
+        bookName = input("Name: ")
+        bookAuthor = input("Author: ")
+        bookCategory = input("Category: ")
+
+        print("\n==========================================\n")
+
+        if bookName.strip() == "":
+            print("Error! Book name can't be empty.\n")
+        elif bookAuthor.strip() == "":
+            print("Error! Please enter the author's name.\n")
+        elif bookCategory.strip() == "":
+            print("Error! Book Category can't be empty.\n")
+        else:
+
+            book = {
+                "name": bookName,
+                "author": bookAuthor,
+                "category": bookCategory
+            }
+
+            books.append(book)
+
+            print("Success!\n")
+
+        repeat = input("\nDo you want to add a new book? (y/n): ")
+
+        if repeat.lower() == "n":
+            break
+        elif repeat.lower() == "y":
+            continue
 
 
-bookshelf.showBooks()
-bookshelf.saveBooks()
+    bookshelf.showBooks()
+    bookshelf.saveBooks()

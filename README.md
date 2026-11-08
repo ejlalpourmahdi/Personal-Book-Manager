@@ -48,7 +48,7 @@ A separate admin entry path asks for a password. The password is read from the `
 ## Features
 
 - Ask for the user's name and display a welcome message.
-- Add books by entering a name, author, and category.
+- Add books by entering a name, author, priority and category.
 - Validate book details and reject empty fields.
 - Display the books currently in the collection.
 - Save book records locally in `books.json`.
@@ -69,9 +69,9 @@ Personal-Book-Manager/
 │   └── books-library.png
 ├── main.py
 ├── books.py
-├── books.json          # Created by the application when books are saved
-├── .env                # Local configuration; do not commit
-├── .env.example        # Optional template for environment configuration
+├── books.json
+├── .env
+├── .env.example
 ├── requirements.txt
 ├── .gitignore
 └── README.md
@@ -170,7 +170,7 @@ When you choose `n`, the application:
 
 1. Asks for your name and displays a welcome message.
 2. Loads any existing records from `books.json`.
-3. Prompts you to enter a book's name, author, and category.
+3. Prompts you to enter a book's name, author, priority and category.
 4. Rejects a book if any of those fields is empty.
 5. Asks whether you want to add another book.
 6. Displays the collection and saves it to `books.json`.
@@ -194,6 +194,7 @@ Welcome Mahdi!
 
 Name: The Little Prince
 Author: Antoine de Saint-Exupery
+Priority (Low / Medium / High): medium 
 Category: Fiction
 
 ==========================================
@@ -206,6 +207,7 @@ Do you want to add a new book? (y/n): n
 
 - Name: The Little Prince
 - Author: Antoine De Saint-Exupery
+- Priority: Medium
 - Category: Fiction
 
 ---
@@ -237,6 +239,7 @@ Book records are stored in `books.json` in the project directory. The file conta
 {
   "name": "The Little Prince",
   "author": "Antoine de Saint-Exupery",
+  "priority": "Medium",
   "category": "Fiction"
 }
 ```

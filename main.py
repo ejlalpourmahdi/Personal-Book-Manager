@@ -20,6 +20,7 @@ elif adminMode.lower() == "n":
 
     print(f"Welcome {username}!")
 
+    PRIORITY = ["low", "medium", "high"]
     books = []
     bookshelf = Bookshelf(books)
     savedBooks = bookshelf.loadBooks()
@@ -31,6 +32,7 @@ elif adminMode.lower() == "n":
 
         bookName = input("Name: ")
         bookAuthor = input("Author: ")
+        bookPriority = input("Priority (Low / Medium / High): ")
         bookCategory = input("Category: ")
 
         print("\n==========================================\n")
@@ -41,11 +43,19 @@ elif adminMode.lower() == "n":
             print("Error! Please enter the author's name.\n")
         elif bookCategory.strip() == "":
             print("Error! Book Category can't be empty.\n")
+        elif not bookPriority in PRIORITY:
+            print("Error! An invalid priority.")
         else:
 
+            bookName = bookName.title()
+            bookAuthor = bookAuthor.title()
+            bookPriority = bookPriority.title()
+            bookCategory = bookCategory.title()
+            
             book = {
                 "name": bookName,
                 "author": bookAuthor,
+                "priority": bookPriority,
                 "category": bookCategory
             }
 

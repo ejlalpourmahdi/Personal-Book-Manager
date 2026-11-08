@@ -48,7 +48,7 @@ A separate admin entry path asks for a password. The password is read from the `
 ## Features
 
 - Ask for the user's name and display a welcome message.
-- Add books by entering a name, author, priority and category.
+- Add books by entering a name, author, priority (Low / Medium / High / Very High) and category.
 - Validate book details and reject empty fields.
 - Display the books currently in the collection.
 - Save book records locally in `books.json`.
@@ -194,7 +194,7 @@ Welcome Mahdi!
 
 Name: The Little Prince
 Author: Antoine de Saint-Exupery
-Priority (Low / Medium / High): medium 
+Priority (Low / Medium / High / Very High): medium 
 Category: Fiction
 
 ==========================================

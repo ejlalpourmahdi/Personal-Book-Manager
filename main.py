@@ -32,7 +32,7 @@ elif adminMode.lower() == "n":
 
         bookName = input("Name: ")
         bookAuthor = input("Author: ")
-        bookPriority = input("Priority (Low / Medium / High): ")
+        bookPriority = input("Priority (Low / Medium / High / Very High): ")
         bookCategory = input("Category: ")
 
         print("\n==========================================\n")

@@ -225,7 +225,7 @@ Some picture of application run
 
 ![Books Library](pictures/books-library.png)
 
-## Demo
+## Application Preview
 
 A short GIF of a real application run
 

@@ -10,6 +10,7 @@ class Bookshelf():
         for book in self.books:
             print(f"- Name: {book["name"].title()}\n- Author: {book["author"].title()}\n- Priority: {book["priority"].title()}\n- Category: {book["category"]}")
             print("\n---\n")
+            print(f"Total books: {len(self.books)}")
 
     def saveBooks(self):
         with open("books.json", "w", encoding="utf-8") as file:

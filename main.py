@@ -61,7 +61,7 @@ elif adminMode.lower() == "n":
 
             books.append(book)
 
-            print("Success!\n")
+            print("Book added successfully!\n")
 
         repeat = input("\nDo you want to add a new book? (y/n): ")
 
